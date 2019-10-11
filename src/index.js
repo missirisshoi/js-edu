@@ -9,6 +9,17 @@ module.exports = function getTimeForEducation(
     knowsProgramming = true,
     config = {family: 4}
     ) {
-      return 0;
+      
+      // если студент знает основы, ему нужно 800 часов; если не знает - плюс еще 500
+      if (knowsProgramming) {
+        time = 800;
+        }
+      else {
+        time = 800 + 500;
+      }
+      
+      // вычисляем результат в зависимости от того, что в приоритете у студента
+      resultTime = Math.ceil(time/config[focus]);
+
+      return resultTime;
   };
-  
